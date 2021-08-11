@@ -1,32 +1,31 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <header-bar />
     <router-view />
+    <footer-bar />
   </div>
 </template>
-
+<script>
+// 引入头部导航
+import HeaderBar from 'components/common/HeaderBar'
+// 引入底部导航
+import FooterBar from 'components/common/FooterBar'
+import { mapMutations } from 'vuex'
+export default {
+  name: 'App',
+  components: {
+    HeaderBar,
+    FooterBar,
+  },
+  created() {
+    // 每次页面刷新时从localStorage获取数据存入vuex中
+    this.INIT_USER_INFO()
+  },
+  methods: {
+    ...mapMutations(['INIT_USER_INFO']),
+  },
+}
+</script>
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+@import url('~assets/css/reset.css');
 </style>

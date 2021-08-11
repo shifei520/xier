@@ -1,0 +1,4 @@
+export const SAVE_USER = 'SAVE_USER'
+export const INIT_USER_INFO = 'INIT_USER_INFO'
+export const QUERY_CERTIFICATE_INFO = 'QUERY_CERTIFICATE_INFO'
+export const ADD_TO_CART = 'ADD_TO_CART'
